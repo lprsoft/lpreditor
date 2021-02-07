@@ -15,7 +15,9 @@ function fancyAlert(arg) {
 }
 ```
 
-
+def foo():
+    if not bar:
+        return True
 
 ************************************************************************
 // Copyright (C) 2021, Raphael Poulenard.
