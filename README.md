@@ -4,20 +4,13 @@ automatic number plate recognition engine
 Integrating the Library
 
 
-//step 1 declare a global instance of ONNX Runtime api
-const OrtApi* g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
 
 ```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
+
+//step 1 declare a global instance of ONNX Runtime api
+const OrtApi* g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
 ```
 
-def foo():
-    if not bar:
-        return True
 
 ************************************************************************
 // Copyright (C) 2021, Raphael Poulenard.
