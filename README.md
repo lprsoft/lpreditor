@@ -8,12 +8,10 @@ automatic number plate recognition engine
 const OrtApi* g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
 ```
 ```javascript
-
-		//step2 declare an onnx runtime environment
-		std::string instanceName{ "image-classification-inference" };
-		// https://github.com/microsoft/onnxruntime/blob/rel-1.6.0/include/onnxruntime/core/session/onnxruntime_c_api.h#L123
-		//step2 declare an onnx runtime environment
-		Ort::Env env(OrtLoggingLevel::ORT_LOGGING_LEVEL_WARNING,instanceName.c_str());
+//step2 declare an onnx runtime environment
+std::string instanceName{ "image-classification-inference" };
+// https://github.com/microsoft/onnxruntime/blob/rel-1.6.0/include/onnxruntime/core/session/onnxruntime_c_api.h#L123
+Ort::Env env(OrtLoggingLevel::ORT_LOGGING_LEVEL_WARNING,instanceName.c_str());
 ```
 
 ## License
