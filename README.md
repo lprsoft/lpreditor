@@ -1,7 +1,7 @@
 # lpreditor
 automatic number plate recognition engine
 
-## Integrating the Library in your c++ application
+## Integrating the Library to your c++ application
 ```javascript
 
 //step 1 declare a global instance of ONNX Runtime api
@@ -25,8 +25,12 @@ sessionOptions.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTE
 std::wstring widestr = std::wstring(model_filename.begin(), model_filename.end());
 Yolov5_anpr_onxx_detector onnx_net(env, widestr.c_str(), sessionOptions);
 ```
+```javascript
+//step 5 call the detect function of the Yolov5_anpr_onxx_detector object, on a cv::mat object or an image file.
+//This will retieves boxes and classes of the license plate caracters
+onnx_net.detect(...);
+```
 ## License
-
 Affero GPLv3 http://www.gnu.org/licenses/agpl-3.0.html
 
 Commercial-friendly licensing available.
