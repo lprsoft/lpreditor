@@ -1,10 +1,10 @@
 # LPReditor
 Automatic number plate recognition engine based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![onnx](https://github.com/onnx/onnx)
 ## Build
-This code is standard c++ and relies on OPENCV and ONNXruntime. These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
+This code is standard c++ and relies on ![OpenCV](https://github.com/opencv/opencv) and ![ONNXRUNTIME](https://github.com/microsoft/onnxruntime). These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
 #### (Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build
 ### On Windows :
-#### Step 2 : onnxruntime-win-x64-1.4.0
+#### Step 2 : ![onnxruntime-win-x64-1.4.0](https://github.com/microsoft/onnxruntime/releases)
 Download onnxruntime-win-x64-1.4.0.zip and decompress somewhere
 #### Step 3 : modify CMakeLists.txt
 In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-win-x64-1.4.0/ to point to the actual path of the onnxruntime-win-x64-1.4.0 directory
@@ -13,7 +13,7 @@ From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt
 #### Step 4 : build solution in Visual Studio
 
 ### On Linux :
-#### Step 2 : onnxruntime-linux-x64-1.6.0
+#### Step 2 : ![onnxruntime-linux-x64-1.6.0](https://github.com/microsoft/onnxruntime/releases)
 Download onnxruntime-linux-x64-1.6.0.tgz and decompress somewhere
 #### Step 3 : modify CMakeLists.txt
 In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-linux-x64-1.6.0/ to point to the actual path of the onnxruntime-linux-x64-1.6.0 directory
@@ -52,7 +52,8 @@ std::string lpn;
 onnx_net.detect(frame, lpn);
 ```
 ## detailed description
-Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code) in the image filename, then statistics of the correctness of the readings are available. Furthermore, it can display a ![window, named with the read lpn](https://github.com/lprsoft/lpreditor/blob/master/image2.jpg). It is also possible to ![see bounding boxes of caracters ](https://github.com/lprsoft/lpreditor/blob/master/image.jpg) (activate show_boxes function in the code).
+Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code) in the image filename, then statistics of the correctness of the readings are available. Furthermore, it can display a 
+![window, named with the read lpn](https://github.com/lprsoft/lpreditor/blob/master/image2.jpg). It is also possible to ![see bounding boxes of caracters ](https://github.com/lprsoft/lpreditor/blob/master/image.jpg) (activate show_boxes function in the code).
 ## Third party software
 
 ### c++ inference (present source code)
