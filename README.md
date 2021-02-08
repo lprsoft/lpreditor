@@ -41,8 +41,8 @@ Ort::SessionOptions sessionOptions;
 sessionOptions.SetIntraOpNumThreads(1);
 sessionOptions.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
 ```
-
 <a name="step_4">
+ 
 ```javascript
 //step 4 declare an onnx session (ie model), by giving references to the runtime environment, session options and path to the model
 std::wstring widestr = std::wstring(model_filename.begin(), model_filename.end());
