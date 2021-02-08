@@ -1,5 +1,5 @@
 # LPReditor
-Automatic number plate recognition engine based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![onnx](https://github.com/onnx/onnx)
+Deep learning number plate recognition engine based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![onnx](https://github.com/onnx/onnx)
 ## Build
 This code is standard c++ and relies on ![OpenCV](https://github.com/opencv/opencv) and ![ONNXRUNTIME](https://github.com/microsoft/onnxruntime). These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
 #### (Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build
