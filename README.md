@@ -80,7 +80,7 @@ std::string lpn;
 onnx_net.detect(frame, lpn);
 ```
 # Deep learning model file
-Mandatory : to operate, the executable must load the model file. Doing that, you have to specify, either in the command line or directly in the source code (see [step 4](#step_4)) its file path. You can download the model : due to its size, the lpreditor_anpr.onnx file is in the LPReditor_ANPR.zip release, under (LPReditor_ANPR/data/models/). Or you can download it, from my google ![drive](https://drive.google.com/drive/folders/18CInjmGYyFnNpsGo6jaTCtuXnAlWf2qh?usp=sharing). Another option, is to train your own model, on your dataset, using ![YOLOv5](https://github.com/ultralytics/yolov5) and then ![export](https://github.com/ultralytics/yolov5/issues/251) it.
+Mandatory : to operate, the executable must load the model file. Doing that, you have to specify, either in the command line or directly in the source code (see [step 4](#step_4)) its file path. You can download the model : due to its size, the lpreditor_anpr.onnx file is in the LPReditor_ANPR.zip release, under (LPReditor_ANPR/data/models/) or in the repo as a zipped file (/data/models/lpreditor_anpr.zip). Another option, is to train your own model, on your dataset, using ![YOLOv5](https://github.com/ultralytics/yolov5) and then ![export](https://github.com/ultralytics/yolov5/issues/251) it.
 
 
 # More detailed description
