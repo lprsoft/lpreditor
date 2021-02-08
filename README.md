@@ -59,6 +59,17 @@ Furthermore, it can display a window, named with the read lpn :
 &nbsp;
 It is also possible (activate show_boxes function in the code) to see bounding boxes of caracters :![bbs](https://github.com/lprsoft/lpreditor/blob/master/image.jpg)
 (<img src="https://github.com/lprsoft/lpreditor/blob/master/image.jpg" width="200" height="200" />) 
+## More detailed description
+Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code) in the image filename, then statistics of the correctness of the readings are available. 
+&nbsp;
+Furthermore, it can display a window, named with the read lpn :
+&nbsp;
+![highgui](https://github.com/lprsoft/lpreditor/blob/master/image2.jpg).
+&nbsp;
+It is also possible (activate show_boxes function in the code) to see bounding boxes of caracters :
+&nbsp;
+(<img src="https://github.com/lprsoft/lpreditor/blob/master/image.jpg" width="320" height="240" />) 
+
 ## Third party software
 
 ### c++ inference (present source code)
