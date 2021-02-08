@@ -1,8 +1,10 @@
 # lpreditor
 automatic number plate recognition engine
-
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
+Building will produce an executable with command line options. It can read lpn(s) from a single image file or from multiple image files in a common directory (see command line options in the Open_LPReditor.cpp). If the actual license plate number is provided in the image filename, then statistics of the correctness of the readings are available. Furthermore, it can display a window whose name is the read lpn. It is also possible to see bounding boxes of caracters (activate show_boxes function in the code).
 ## Build
-This code is standard c++ and relies on OPENCV and ONNXruntime. These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). Building will produce an executable with command line options. It can read lpn(s) from a single image file or from multiple image files in a common directory (see command line options in the Open_LPReditor.cpp). If the actual license plate number is provided in the image filename, then statistics of the correctness of the readings are available. Furthermore, it can display a window whose name is the read lpn. It is also possible to see bounding boxes of caracters (activate show_boxes function in the code).
+This code is standard c++ and relies on OPENCV and ONNXruntime. These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
 #### (Common) Step 1 : Download OPENCV, cmake and build
 ### On Windows :
 #### Step 2 : onnxruntime-win-x64-1.4.0
@@ -68,9 +70,8 @@ MIT License
 ### model training
 
 #### YOLOv5 
-#1
-mojombo#1
-mojombo/github-flavored-markdown#1
+
+mojombo/github-flavored-markdown
 by Glenn Jocher (Ultralytics.com)
 GPL-3.0 License
 
