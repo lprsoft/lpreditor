@@ -1,6 +1,6 @@
 
   
-**Deep learning number plate recognition engine, based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![onnx](https://github.com/onnx/onnx). Operates on latin characters.**
+**Deep learning number plate recognition engine, based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![ONNX](https://github.com/onnx/onnx). Operates on latin characters.**
 
 - [Build](#build)
     + [(Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build](#-common--step-1---download---opencv--https---githubcom-opencv-opencv---cmake-and-build)
@@ -28,7 +28,7 @@
 
   
 # Build
-This code is standard c++ and relies on ![OpenCV](https://github.com/opencv/opencv) and ![ONNXRUNTIME](https://github.com/microsoft/onnxruntime). These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
+This code is standard c++ and relies on ![OpenCV](https://github.com/opencv/opencv) and ![ONNXRuntime](https://github.com/microsoft/onnxruntime). These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
 ### (Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build
 ## On Windows :
 ### Step 2 : ![onnxruntime-win-x64-1.4.0](https://github.com/microsoft/onnxruntime/releases)
@@ -120,7 +120,7 @@ Another option is to display bounding boxes of caracters and license plate ROI (
 Copyright © 2021 , OpenCV team
 Apache 2 License
 
-### ![ONNXRUNTIME](https://github.com/microsoft/onnxruntime)
+### ![ONNXRuntime](https://github.com/microsoft/onnxruntime)
 Copyright © 2020 Microsoft. All rights reserved.
 MIT License
 
@@ -131,7 +131,7 @@ MIT License
 by Glenn Jocher (Ultralytics.com)
 GPL-3.0 License
 
-### ![onnx](https://github.com/onnx/onnx)
+### ![ONNX](https://github.com/onnx/onnx)
 Copyright (c) Facebook, Inc. and Microsoft Corporation. All rights reserved.
 MIT License
 
