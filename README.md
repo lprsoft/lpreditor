@@ -20,10 +20,10 @@
 - [Third party software](#third-party-software)
   * [c++ inference (present code)](#c---inference--present-code-)
     + [![OpenCV 4.5.0 and higher](https://github.com/opencv/opencv)](#--opencv-450-and-higher--https---githubcom-opencv-opencv-)
-    + [![ONNXRUNTIME](https://github.com/microsoft/onnxruntime)](#--onnxruntime--https---githubcom-microsoft-onnxruntime-)
+    + [![ONNXRuntime](https://github.com/microsoft/onnxruntime)](#--onnxruntime--https---githubcom-microsoft-onnxruntime-)
   * [model trained with the use of :](#model-trained-with-the-use-of--)
     + [![YOLOv5](https://github.com/ultralytics/yolov5)](#--yolov5--https---githubcom-ultralytics-yolov5-)
-    + [![onnx](https://github.com/onnx/onnx)](#--onnx--https---githubcom-onnx-onnx-)
+    + [![ONNX](https://github.com/onnx/onnx)](#--onnx--https---githubcom-onnx-onnx-)
 - [License](#license)
 
   
@@ -136,7 +136,7 @@ Copyright (c) Facebook, Inc. and Microsoft Corporation. All rights reserved.
 MIT License
 
 # License
-all files, including the deep learning model file provided are subject to GNU General Public License v3.0
+All files, including the deep learning model file provided, are subject to GNU General Public License v3.0.
 
 Commercial-friendly licensing available.
 
