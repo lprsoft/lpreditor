@@ -19,7 +19,7 @@ Download onnxruntime-linux-x64-1.6.0.tgz and decompress somewhere
 In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-linux-x64-1.6.0/ to point to the actual path of the onnxruntime-linux-x64-1.6.0 directory
 #### Step 4 : cmake
 From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt 
-#### Step 4 : in the build LPReditor_ANPR/build dir make
+#### Step 4 : make in the build LPReditor_ANPR/build dir
 
 ## Integrating this LP recog engine to your c++ code
 ```javascript
