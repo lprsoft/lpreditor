@@ -84,7 +84,7 @@ It is also possible (activate show_boxes function in the code) to see bounding b
 
 ## Third party software
 
-### c++ inference (present source code)
+### c++ inference (present code)
 
 #### ![OpenCV 4.5.0 and higher](https://github.com/opencv/opencv)
 Copyright © 2021 , OpenCV team
@@ -94,7 +94,7 @@ Apache 2 License
 Copyright © 2020 Microsoft. All rights reserved.
 MIT License
 
-### model training
+### model trained with the use of :
 
 #### ![YOLOv5](https://github.com/ultralytics/yolov5)
 
