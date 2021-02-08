@@ -2,7 +2,7 @@
 automatic number plate recognition engine
 
 ## Build
-This code is standard c++ and relies on OPENCV and ONNXruntime. These two software are meant to operate on a vast range of hardware and os. Based on that, it should be possible to build on various platforms. Among thhem, i tested successfully Windows 10 and Linux Ubuntu (20.04). the use of CUDA has not (yet) been tested (only CPU).
+This code is standard c++ and relies on OPENCV and ONNXruntime. These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU).
 #### (Common) Step 1 : Download OPENCV, cmake and build
 ### On Windows :
 #### Step 2 : onnxruntime-win-x64-1.4.0
@@ -12,6 +12,15 @@ In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-win-x64-1.4.0/ to point 
 #### Step 4 : cmake
 From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt 
 #### Step 4 : build solution in Visual Studio
+
+### On Linux :
+#### Step 2 : onnxruntime-linux-x64-1.6.0
+Download onnxruntime-linux-x64-1.6.0.tgz and decompress somewhere
+#### Step 3 : modify CMakeLists.txt
+In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-linux-x64-1.6.0/ to point to the actual path of the onnxruntime-linux-x64-1.6.0 directory
+#### Step 4 : cmake
+From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt 
+#### Step 4 : in the build LPReditor_ANPR/build dir make
 
 ## Integrating the Library to your c++ application
 ```javascript
@@ -33,7 +42,7 @@ sessionOptions.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTE
 ```
 
 ```javascript
-//step 4 declare an onnx session (ie model), by giving references to the runtime environment, session options and file path to the model
+//step 4 declare an onnx session (ie model), by giving references to the runtime environment, session options and path to the model
 std::wstring widestr = std::wstring(model_filename.begin(), model_filename.end());
 Yolov5_anpr_onxx_detector onnx_net(env, widestr.c_str(), sessionOptions);
 ```
