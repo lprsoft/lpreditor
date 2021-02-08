@@ -69,9 +69,8 @@ MIT License
 
 ### model training
 
-#### YOLOv5 
+#### YOLOv5 ![YOLOv5](https://github.com/ultralytics/yolov5)
 
-mojombo/github-flavored-markdown
 by Glenn Jocher (Ultralytics.com)
 GPL-3.0 License
 
