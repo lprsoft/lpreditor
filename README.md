@@ -39,7 +39,7 @@ Ort::SessionOptions sessionOptions;
 sessionOptions.SetIntraOpNumThreads(1);
 sessionOptions.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
 ```
-
+[Headers](#headers)
 ```javascript
 //step 4 declare an onnx session (ie model), by giving references to the runtime environment, session options and path to the model
 std::wstring widestr = std::wstring(model_filename.begin(), model_filename.end());
@@ -51,10 +51,11 @@ Yolov5_anpr_onxx_detector onnx_net(env, widestr.c_str(), sessionOptions);
 std::string lpn;
 onnx_net.detect(frame, lpn);
 ```
-## Deep learning model file
-The onnx model file, due to its size, is in the LPReditor_ANPR.zip release under (LPReditor_ANPR/data/models/lpreditor_anpr.onnx)
+## MANDATORY Deep learning model file
+To operate you must specify the path to the model file, either in the command line option or directly in the source code see .
+You can download the model : due to its size, is in the LPReditor_ANPR.zip release under (LPReditor_ANPR/data/models/lpreditor_anpr.onnx)
 ## More detailed description
-Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code) in the image filename, then statistics of the correctness of the readings are available. 
+Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files, in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code), in the image filename, then statistics of the correctness of the readings are available. 
  	
 
  
@@ -75,7 +76,7 @@ Furthermore, it can display a window, named with the read lpn :
  
 
 ---
-It is also possible (activate show_boxes function in the code) to see bounding boxes of caracters :
+It is also possible (activate show_boxes function in the code) to see bounding boxes of caracters and license plate ROI :
 &nbsp;
  	
 
