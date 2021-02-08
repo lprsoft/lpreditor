@@ -2,7 +2,6 @@
   
 **Deep learning number plate recognition engine, based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![onnx](https://github.com/onnx/onnx). Operates on latin characters.**
 
-
 - [Build](#build)
     + [(Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build](#-common--step-1---download---opencv--https---githubcom-opencv-opencv---cmake-and-build)
   * [On Windows :](#on-windows--)
@@ -15,8 +14,8 @@
     + [Step 3 : modify CMakeLists.txt](#step-3---modify-cmakeliststxt-1)
     + [Step 4 : cmake](#step-4---cmake-1)
     + [Step 4 : make in the build LPReditor_ANPR/build dir](#step-4---make-in-the-build-lpreditor-anpr-build-dir)
-- [Integrating this LP recog engine to your c++ code](#integrating-this-lp-recog-engine-to-your-c---code)
-- [MANDATORY Deep learning model file](#mandatory-deep-learning-model-file)
+- [Integrating to your c++ code](#integrating-to-your-c---code)
+- [Deep learning model file](#deep-learning-model-file)
 - [More detailed description](#more-detailed-description)
 - [Third party software](#third-party-software)
   * [c++ inference (present code)](#c---inference--present-code-)
@@ -26,6 +25,7 @@
     + [![YOLOv5](https://github.com/ultralytics/yolov5)](#--yolov5--https---githubcom-ultralytics-yolov5-)
     + [![onnx](https://github.com/onnx/onnx)](#--onnx--https---githubcom-onnx-onnx-)
 - [License](#license)
+
   
 # Build
 This code is standard c++ and relies on ![OpenCV](https://github.com/opencv/opencv) and ![ONNXRUNTIME](https://github.com/microsoft/onnxruntime). These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
@@ -79,8 +79,8 @@ Yolov5_anpr_onxx_detector onnx_net(env, widestr.c_str(), sessionOptions);
 std::string lpn;
 onnx_net.detect(frame, lpn);
 ```
-# MANDATORY Deep learning model file
-To operate, the software must load the model file. Doing that, you have to specify, either in the command line or directly in the source code (see [step 4](#step_4)) its file path. You can download the model from here : due to its size, the lpreditor_anpr.onnx file is in the LPReditor_ANPR.zip release, under (LPReditor_ANPR/data/models/)
+# Deep learning model file
+Mandatory : to operate, the executable must load the model file. Doing that, you have to specify, either in the command line or directly in the source code (see [step 4](#step_4)) its file path. You can download the model from here : due to its size, the lpreditor_anpr.onnx file is in the LPReditor_ANPR.zip release, under (LPReditor_ANPR/data/models/)
 # More detailed description
 Building will produce an executable, with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or alternatively, from multiple image files, in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code), in the image filename, then statistics of the correctness of the readings, are available. 
  	
