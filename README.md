@@ -22,7 +22,8 @@ From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt
 #### Step 4 : make in the build LPReditor_ANPR/build dir
 
 ## Integrating this LP recog engine to your c++ code
-### [step 1](#step 1)
+### step 1
+[step 1](#step 1)
 ```javascript
 //step 1 declare a global instance of ONNX Runtime api
 const OrtApi* g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
@@ -52,7 +53,7 @@ std::string lpn;
 onnx_net.detect(frame, lpn);
 ```
 ## MANDATORY Deep learning model file
-To operate, the software must load the model file. Doing that, you have to specify ,either in the command line option or directly in the source code see , its file path. You can download the model : due to its size, is in the LPReditor_ANPR.zip release under (LPReditor_ANPR/data/models/lpreditor_anpr.onnx)
+To operate, the software must load the model file. Doing that, you have to specify ,either in the command line option or directly in the source code see (#step 1), its file path. You can download the model : due to its size, is in the LPReditor_ANPR.zip release under (LPReditor_ANPR/data/models/lpreditor_anpr.onnx)
 ## More detailed description
 Building will produce an executable, with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or alternatively, from multiple image files, in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code), in the image filename, then statistics of the correctness of the readings, are available. 
  	
