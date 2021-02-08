@@ -53,6 +53,11 @@ onnx_net.detect(frame, lpn);
 ```
 ## More detailed description
 Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code) in the image filename, then statistics of the correctness of the readings are available. 
+ 	
+
+ 
+
+---
 &nbsp;
 Furthermore, it can display a window, named with the read lpn :
  	
