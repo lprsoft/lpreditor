@@ -51,6 +51,8 @@ Yolov5_anpr_onxx_detector onnx_net(env, widestr.c_str(), sessionOptions);
 std::string lpn;
 onnx_net.detect(frame, lpn);
 ```
+## Deep learning model file
+The onnx model file, due to its size, is in the LPReditor_ANPR.zip release under (LPReditor_ANPR/data/models/lpreditor_anpr.onnx)
 ## More detailed description
 Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code) in the image filename, then statistics of the correctness of the readings are available. 
  	
