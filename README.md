@@ -1,6 +1,16 @@
 # lpreditor
 automatic number plate recognition engine
 
+Build
+This code is standard c++ and relies on OPENCV and ONNXruntime. These two software are meant to operate on a vast range of hardware and os. Based on that, it should be possible to build on various platforms. Among thhem, i tested successfully Windows 10 and Linux Ubuntu (20.04). the use of CUDA has not (yet) been tested (only CPU).
+Step 1 : Download OPENCV, cmake and build
+On Windows :
+Step 2 : 
+Download onnxruntime-win-x64-1.4.0.zip and decompress somewhere
+In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-win-x64-1.4.0/ to point to the actual path of the onnxruntime-win-x64-1.4.0 directory
+From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt 
+Build LPReditor_ANPR solution in Visual Studio
+
 ## Integrating the Library to your c++ application
 ```javascript
 
