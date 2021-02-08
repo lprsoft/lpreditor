@@ -21,7 +21,7 @@ In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-linux-x64-1.6.0/ to poin
 From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt 
 #### Step 4 : in the build LPReditor_ANPR/build dir make
 
-## Integrating the Library to your c++ application
+## Integrating this LP recog engine to your c++ code
 ```javascript
 
 //step 1 declare a global instance of ONNX Runtime api
