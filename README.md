@@ -34,7 +34,7 @@ onnx_net.detect(frame, lpn);
 
 ## Third party software
 
-### c++ inference source code
+### c++ inference (present source code)
 
 #### OpenCV 4.5.0 and higher
 Copyright © 2021 , OpenCV team
