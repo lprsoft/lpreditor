@@ -105,7 +105,7 @@ Optionaly (in the command line), it can display a window, named with the read lp
  
 
 ---
-Another option is to display bounding boxes of caracters and license plate ROI (by activate show_boxes function, directly in the code) :
+Another option is to display bounding boxes of caracters and license plate ROI (by activating show_boxes function, directly in the code) :
 &nbsp;
  	
 
