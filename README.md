@@ -59,22 +59,22 @@ onnx_net.detect(frame, lpn);
 
 ### c++ inference (present source code)
 
-#### OpenCV 4.5.0 and higher
+#### ![OpenCV 4.5.0 and higher](https://github.com/opencv/opencv)
 Copyright © 2021 , OpenCV team
 Apache 2 License
 
-#### ONNXRUNTIME
+#### ![ONNXRUNTIME](https://github.com/microsoft/onnxruntime)
 Copyright © 2020 Microsoft. All rights reserved.
 MIT License
 
 ### model training
 
-#### YOLOv5 ![YOLOv5](https://github.com/ultralytics/yolov5)
+#### ![YOLOv5](https://github.com/ultralytics/yolov5)
 
 by Glenn Jocher (Ultralytics.com)
 GPL-3.0 License
 
-#### onnx
+#### ![onnx](https://github.com/onnx/onnx)
 Copyright (c) Facebook, Inc. and Microsoft Corporation. All rights reserved.
 MIT License
 
