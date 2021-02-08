@@ -52,7 +52,7 @@ std::string lpn;
 onnx_net.detect(frame, lpn);
 ```
 ## detailed description
-Building will produce an executable with command line options. It can read lpn(s) from a single image file or from multiple image files in a common directory (see command line options in the Open_LPReditor.cpp). If the actual license plate number is provided in the image filename, then statistics of the correctness of the readings are available. Furthermore, it can display a window whose name is the read lpn. It is also possible to ![see bounding boxes of caracters ](https://github.com/lprsoft/lpreditor/blob/master/image.jpg) (activate show_boxes function in the code).
+Building will produce an executable with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or from multiple image files in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code) in the image filename, then statistics of the correctness of the readings are available. Furthermore, it can display a window, named with the read lpn. It is also possible to ![see bounding boxes of caracters ](https://github.com/lprsoft/lpreditor/blob/master/image.jpg) (activate show_boxes function in the code).
 ## Third party software
 
 ### c++ inference (present source code)
