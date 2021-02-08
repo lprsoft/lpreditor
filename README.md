@@ -136,7 +136,7 @@ Copyright (c) Facebook, Inc. and Microsoft Corporation. All rights reserved.
 MIT License
 
 # License
-Affero GPLv3 http://www.gnu.org/licenses/agpl-3.0.html
+all files, including the deep learning model file provided are subject to GNU General Public License v3.0
 
 Commercial-friendly licensing available.
 
