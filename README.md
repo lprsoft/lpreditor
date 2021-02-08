@@ -3,7 +3,7 @@
 **Deep learning number plate recognition engine, based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![ONNX](https://github.com/onnx/onnx). Operates on latin characters.**
 
 - [Build](#build)
-    + [(Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build](#-common--step-1---download---opencv--https---githubcom-opencv-opencv---cmake-and-build)
+    + [(Common) Step 1 : Install ![OpenCV](https://github.com/opencv/opencv)](#-common--step-1---install---opencv--https---githubcom-opencv-opencv-)
   * [On Windows :](#on-windows--)
     + [Step 2 : ![onnxruntime-win-x64-1.4.0](https://github.com/microsoft/onnxruntime/releases)](#step-2-----onnxruntime-win-x64-140--https---githubcom-microsoft-onnxruntime-releases-)
     + [Step 3 : modify CMakeLists.txt](#step-3---modify-cmakeliststxt)
@@ -29,7 +29,7 @@
   
 # Build
 This code is standard c++ and relies on ![OpenCV](https://github.com/opencv/opencv) and ![ONNXRuntime](https://github.com/microsoft/onnxruntime). These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
-### (Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build
+### (Common) Step 1 : Install ![OpenCV](https://github.com/opencv/opencv)
 ## On Windows :
 ### Step 2 : ![onnxruntime-win-x64-1.4.0](https://github.com/microsoft/onnxruntime/releases)
 Download onnxruntime-win-x64-1.4.0.zip and decompress somewhere
