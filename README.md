@@ -1,4 +1,30 @@
-# LPReditor
+
+- [LPReditor](#lpreditor)
+  * [Build](#build)
+      - [(Common) Step 1 : Download ![OpenCV](https://github.com/opencv/opencv), cmake and build](#-common--step-1---download---opencv--https---githubcom-opencv-opencv---cmake-and-build)
+    + [On Windows :](#on-windows--)
+      - [Step 2 : ![onnxruntime-win-x64-1.4.0](https://github.com/microsoft/onnxruntime/releases)](#step-2-----onnxruntime-win-x64-140--https---githubcom-microsoft-onnxruntime-releases-)
+      - [Step 3 : modify CMakeLists.txt](#step-3---modify-cmakeliststxt)
+      - [Step 4 : cmake](#step-4---cmake)
+      - [Step 4 : build solution in Visual Studio](#step-4---build-solution-in-visual-studio)
+    + [On Linux :](#on-linux--)
+      - [Step 2 : ![onnxruntime-linux-x64-1.6.0](https://github.com/microsoft/onnxruntime/releases)](#step-2-----onnxruntime-linux-x64-160--https---githubcom-microsoft-onnxruntime-releases-)
+      - [Step 3 : modify CMakeLists.txt](#step-3---modify-cmakeliststxt-1)
+      - [Step 4 : cmake](#step-4---cmake-1)
+      - [Step 4 : make in the build LPReditor_ANPR/build dir](#step-4---make-in-the-build-lpreditor-anpr-build-dir)
+  * [Integrating this LP recog engine to your c++ code](#integrating-this-lp-recog-engine-to-your-c---code)
+  * [MANDATORY Deep learning model file](#mandatory-deep-learning-model-file)
+  * [More detailed description](#more-detailed-description)
+  * [Third party software](#third-party-software)
+    + [c++ inference (present code)](#c---inference--present-code-)
+      - [![OpenCV 4.5.0 and higher](https://github.com/opencv/opencv)](#--opencv-450-and-higher--https---githubcom-opencv-opencv-)
+      - [![ONNXRUNTIME](https://github.com/microsoft/onnxruntime)](#--onnxruntime--https---githubcom-microsoft-onnxruntime-)
+    + [model trained with the use of :](#model-trained-with-the-use-of--)
+      - [![YOLOv5](https://github.com/ultralytics/yolov5)](#--yolov5--https---githubcom-ultralytics-yolov5-)
+      - [![onnx](https://github.com/onnx/onnx)](#--onnx--https---githubcom-onnx-onnx-)
+  * [License](#license)
+  
+  # LPReditor
 Deep learning number plate recognition engine, based on ![YOLOv5](https://github.com/ultralytics/yolov5) and ![onnx](https://github.com/onnx/onnx). Operates on latin characters.
 ## Build
 This code is standard c++ and relies on ![OpenCV](https://github.com/opencv/opencv) and ![ONNXRUNTIME](https://github.com/microsoft/onnxruntime). These two softwares are meant to operate on a vast range of hardwares and os. Based on that, it should be possible to build on various platforms. Among them, I tested successfully Windows 10 and Linux Ubuntu (20.04). Use of CUDA has not (yet) been tested (only CPU). 
