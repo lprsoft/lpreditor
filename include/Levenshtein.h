@@ -22,20 +22,19 @@ GNU General Public License for more details.
 #if !defined(LEVENSHTEIN_H)
 #define LEVENSHTEIN_H
 
-#ifndef GITHUB_LPREDITOR
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
 
-class Levenshtein  
+class Levenshtein
 {
 public:
-	int Get  (const char* a, const char* b);
-	int Get  (const char* a, int aLen, const char* b, int bLen);
+	int Get(const char* a, const char* b);
+	int Get(const char* a, size_t aLen, const char* b, size_t bLen);
 
-    int Get2 (char const *s, char const *t);
-    int Get2 (char const *s, int n, char const *t, int dst);
-	
+	int Get2(char const* s, char const* t);
+	int Get2(char const* s, size_t n, char const* t, size_t dst);
+
 	Levenshtein();
 	virtual ~Levenshtein();
 
@@ -44,40 +43,41 @@ private:
 	//****************************
 	// Get minimum of three values
 	//****************************
-    int Minimum (int a, int b, int c)
+	int Minimum(int a, int b, int c)
 	{
 		int mi = a;
-		
+
 		if (b < mi)		mi = b;
 		if (c < mi)		mi = c;
-		
+
 		return mi;
 	}
 
 	//**************************************************
 	// Get a pointer to the specified cell of the matrix
 	//**************************************************
-    int *GetCellPointer (int *pOrigin, int col, int row, int nCols)
-	{ return pOrigin + col + (row * (nCols + 1)); }
-    
+	int* GetCellPointer(int* pOrigin, int col, int row, int nCols)
+	{
+		return pOrigin + col + (row * (nCols + 1));
+	}
+
 	//*****************************************************
 	// Get the contents of the specified cell in the matrix
 	//*****************************************************
-	int GetAt (int *pOrigin, int col, int row, int nCols)
+	int GetAt(int* pOrigin, int col, int row, int nCols)
 	{
-		int *pCell = GetCellPointer (pOrigin, col, row, nCols);
+		int* pCell = GetCellPointer(pOrigin, col, row, nCols);
 		return *pCell;
 	}
-	
+
 	//********************************************************
 	// Fill the specified cell in the matrix with the value x
 	//********************************************************
-	void PutAt (int *pOrigin, int col, int row, int nCols, int x)
+	void PutAt(int* pOrigin, int col, int row, int nCols, int x)
 	{
-		int *pCell = GetCellPointer (pOrigin, col, row, nCols);
+		int* pCell = GetCellPointer(pOrigin, col, row, nCols);
 		*pCell = x;
 	}
 };
 
-#endif //GITHUB_LPREDITOR
-#endif // !defined(AFX_LEVENSHTEIN_H__1652E861_359D_11D6_BB45_000102A63CA4__INCLUDED_)
+#endif // !defined(LEVENSHTEIN_H)
