@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\build\CMakeFiles\08dc8113d54bacb22d2030780aaa476a\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{38E5AECA-C2C6-362F-8068-45696AD8AEC5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

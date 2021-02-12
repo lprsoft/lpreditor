@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\Open_LPReditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\src\Levenshtein.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\src\Line.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\src\ONNX_detector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\src\utils_anpr_detect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\src\yolov5_anpr_onnx_detector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\include\Levenshtein.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\include\Line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\include\ONNX_detector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\include\utils_anpr_detect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\include\yolov5_anpr_onnx_detector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Programmation\LPReditor-engine\LPReditor_ANPR\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D91ABA92-F457-3C6F-89D9-D0D686D0F13A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5663E766-4794-342B-9C41-2D71720A2814}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
