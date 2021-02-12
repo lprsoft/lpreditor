@@ -38,7 +38,7 @@ Download onnxruntime-win-x64-1.4.0.zip and decompress somewhere
 In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-win-x64-1.4.0/ to point to the actual path of the onnxruntime-win-x64-1.4.0 directory
 ### Step 4 : cmake
 From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt 
-### Step 4 : build solution in Visual Studio
+### Step 5 : build solution in Visual Studio
 
 ## On Linux :
 ### Step 2 : ![onnxruntime-linux-x64-1.6.0](https://github.com/microsoft/onnxruntime/releases)
@@ -47,7 +47,7 @@ Download onnxruntime-linux-x64-1.6.0.tgz and decompress somewhere
 In LPReditor_ANPR/CMakeLists.txt, change ../onnxruntime-linux-x64-1.6.0/ to point to the actual path of the onnxruntime-linux-x64-1.6.0 directory
 ### Step 4 : cmake
 From cmake-gui, configure and generate LPReditor_ANPR/CMakeLists.txt 
-### Step 4 : make in the build LPReditor_ANPR/build dir
+### Step 5 : make in the build LPReditor_ANPR/build dir
 
 # Integrating to your c++ code
 
