@@ -792,7 +792,6 @@ std::string get_lpn(
 		lpn.splice(lpn.end(), lpn_minus_1);
 		lpn.splice(lpn.end(), lpn_0);
 		lpn.splice(lpn.end(), lpn_plus_1);
-		//std::cout << "get_lpn lpn : " << lpn<< std::endl;
 		l_tri_left.clear();//list of characters boxes ranged from left to right
 		l_tri_left_confidences.clear();
 		l_tri_left_classIds.clear();
@@ -891,7 +890,7 @@ std::string get_lpn(
 		std::copy(l_tri_left.begin(), l_tri_left.end(), std::back_inserter(tri_left_vect_of_detected_boxes));
 		std::copy(l_tri_left_confidences.begin(), l_tri_left_confidences.end(), std::back_inserter(tri_left_confidences));
 		std::copy(l_tri_left_classIds.begin(), l_tri_left_classIds.end(), std::back_inserter(tri_left_classIds));
-		std::cout << "read lpn by engine : " << lpn_corrected << std::endl;
+		//std::cout << "read lpn by engine : " << lpn_corrected << std::endl;
 		return lpn_corrected;
 	}
 	else {
@@ -909,7 +908,7 @@ std::string get_lpn(
 		std::copy(vect_of_detected_boxes.begin(), vect_of_detected_boxes.end(), std::back_inserter(tri_left_vect_of_detected_boxes));
 		std::copy(confidences.begin(), confidences.end(), std::back_inserter(tri_left_confidences));
 		std::copy(classIds.begin(), classIds.end(), std::back_inserter(tri_left_classIds));
-		std::cout << "read lpn by engine : " << lpn_corrected << std::endl;
+		//std::cout << "read lpn by engine : " << lpn_corrected << std::endl;
 		return lpn_corrected;
 	}
 }
@@ -939,8 +938,8 @@ void load_images_filenames(const std::string& dir, std::list<std::string>& image
 						//returns the true license plate number out of a filename
 							//you must place the true license plate number in the image filename this way : number + underscore + license plate number,
 							//for instance filename 0000000001_3065WWA34.jpg will be interpreted as an image with the license plate 3065WWA34 in it.
-						std::string VraiLPN(getTrueLPN(p_.stem().string(), vrai_lpn_after_underscore));
-						if (VraiLPN.size() > 3 && VraiLPN.size() < 11) {
+						std::string ExactLPN(getTrueLPN(p_.stem().string(), vrai_lpn_after_underscore));
+						if (ExactLPN.size() > 3 && ExactLPN.size() < 11) {
 							image_filenames.push_back(i->path().string());
 						}
 					}
@@ -965,8 +964,8 @@ void load_images_filenames(const std::string& dir, std::list<std::string>& image
 std::vector<float> LetterboxImage(const cv::Mat& src, cv::Mat& dst, const cv::Size& out_size) {
 	auto in_h = static_cast<float>(src.rows);
 	auto in_w = static_cast<float>(src.cols);
-	float out_h = out_size.height;
-	float out_w = out_size.width;
+	float out_h = float(out_size.height);
+	float out_w = float(out_size.width);
 
 	float scale = std::min(out_w / in_w, out_h / in_h);
 
@@ -1000,12 +999,12 @@ void ScaleCoordinates(std::vector<Detection>& data, float pad_w, float pad_h,
 		float x2 = (i.bbox.br().x - pad_w) / scale;  // x padding
 		float y2 = (i.bbox.br().y - pad_h) / scale;  // y padding
 
-		x1 = clip(x1, 0, img_shape.width);
-		y1 = clip(y1, 0, img_shape.height);
-		x2 = clip(x2, 0, img_shape.width);
-		y2 = clip(y2, 0, img_shape.height);
+		x1 = clip(x1, 0, float(img_shape.width));
+		y1 = clip(y1, 0, float(img_shape.height));
+		x2 = clip(x2, 0, float(img_shape.width));
+		y2 = clip(y2, 0, float(img_shape.height));
 
-		i.bbox = cv::Rect(cv::Point(x1, y1), cv::Point(x2, y2));
+		i.bbox = cv::Rect(cv::Point(lround(x1), lround(y1)), cv::Point(lround(x2), lround(y2)));
 	}
 }
 
@@ -1026,7 +1025,7 @@ std::vector<std::vector<Detection>> PostProcessing(
 	// number of classes, e.g. 80 for coco dataset
 
 	// get candidates which object confidence > threshold
-	int rows = size / dimensions; //25200
+	int rows = int(size) / dimensions; //25200
 	int confidenceIndex = 4;
 	int labelStartIndex = 5;
 	float xGain = modelWidth / float(img_shape.width);
@@ -1054,8 +1053,8 @@ std::vector<std::vector<Detection>> PostProcessing(
 				location[2] = (output[index] + output[index + 2] / 2) / xGain;//bottom right x
 				location[3] = (output[index + 1] + output[index + 3] / 2) / yGain;//bottom right y
 				locations.emplace_back(location);
-				rect = cv::Rect(location[0], location[1],
-					location[2] - location[0], location[3] - location[1]);
+				rect = cv::Rect(lround(location[0]), lround(location[1]),
+					lround(location[2] - location[0]), lround(location[3] - location[1]));
 				src_rects.push_back(rect);
 				labels_.emplace_back(k - labelStartIndex);
 				confidences.emplace_back(output[index + k]);
@@ -1092,7 +1091,7 @@ std::vector<std::vector<Detection>> PostProcessing(
 	// number of classes, e.g. 80 for coco dataset
 
 	// get candidates which object confidence > threshold
-	int rows = size / dimensions; //25200
+	int rows = int(size) / dimensions; //25200
 	int confidenceIndex = 4;
 	int labelStartIndex = 5;
 	//float modelWidth = 640.0f;
@@ -1124,8 +1123,8 @@ std::vector<std::vector<Detection>> PostProcessing(
 				location[2] = (output[index] + output[index + 2] / 2);//bottom right x
 				location[3] = (output[index + 1] + output[index + 3] / 2);//bottom right y
 				locations.emplace_back(location);
-				rect = cv::Rect(location[0], location[1],
-					location[2] - location[0], location[3] - location[1]);
+				rect = cv::Rect(lround(location[0]), lround(location[1]),
+					lround(location[2] - location[0]), lround(location[3] - location[1]));
 				src_rects.push_back(rect);
 				labels_.emplace_back(k - labelStartIndex);
 				confidences.emplace_back(output[index + k]);
@@ -1156,7 +1155,7 @@ std::vector<std::vector<Detection>> PostProcessing(
 void show_boxes(const cv::Mat& frame, const std::list<cv::Rect>& true_boxes, const std::list<int>& classesId) {
 	std::vector<std::string> classes;
 	for (size_t i = 0; i < 35; i++) {
-		std::string s; s += get_char(i);
+		std::string s; s += get_char(int(i));
 		classes.push_back(s);
 	}
 	classes.push_back("[]");

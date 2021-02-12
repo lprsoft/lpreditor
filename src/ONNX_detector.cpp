@@ -54,7 +54,6 @@ void OnnxDetector::dump() const {
 	std::cout << "Input Type: " << inputType << std::endl;
 
 	std::vector<int64_t> inputDims = inputTensorInfo.GetShape();
-	//std::cout << "Input Dimensions: " << inputDims << std::endl;
 	for (size_t i = 0; i < inputDims.size() - 1; i++)
 		std::cout << inputDims[i] << std::endl;
 	std::cout << std::endl;
@@ -79,19 +78,15 @@ void OnnxDetector::dump() const {
 	for (size_t i = 0; i < outputDims.size(); i++)
 		std::cout << outputDims[i] << std::endl;
 	std::cout << std::endl;
-	//std::cout << "Output Dimensions: " << outputDims << std::endl;
 }
 
 std::vector<std::vector<Detection>>
 OnnxDetector::Run(const cv::Mat& img, float conf_threshold, float iou_threshold, bool preserve_aspect_ratio) {
-
-
 	std::vector<std::vector<Detection>> result;
 	cv::Mat resizedImageBGR, resizedImageRGB, resizedImage, preprocessedImage;
 	Ort::TypeInfo inputTypeInfo = session.GetInputTypeInfo(0);
 	auto inputTensorInfo = inputTypeInfo.GetTensorTypeAndShapeInfo();
 	std::vector<int64_t> inputDims = inputTensorInfo.GetShape();
-	//cv::Mat img = cv::imread(imageFilepath, cv::ImreadModes::IMREAD_COLOR);
 	int channels_ = img.channels();
 	if (
 		img.size().width &&
@@ -337,7 +332,7 @@ OnnxDetector::Run(const cv::Mat& img, float conf_threshold, float iou_threshold,
 			classesId.push_back(it->class_idx);
 			it++;
 		}
-		show_boxes(img, true_boxes, classesId);
+		//show_boxes(img, true_boxes, classesId);
 #endif //_DEBUG
 		return detections;
 	}

@@ -151,10 +151,10 @@ bool load_onnx(const std::string& dir_path, std::string& yolo_carac_detect_model
 float Yolov5_anpr_onxx_detector::detect(const std::string& dir, const bool show_image, const int time_delay)
 {
 #ifdef LPREDITOR_DEMO_PRINT_STATS_IN_TXT_FILE
-	std::filesystem::path p(std::filesystem::current_path());
-	//std::string model_path = p.parent_path().string();
-	//std::string filename = "D:\\Programmation\\LPReditor\\ocr_dataset\\test_svm.txt";
-	std::string filename = p.string();
+	//std::filesystem::path p(std::filesystem::current_path());
+	//std::string filename = p.string()+"/test_svm.txt";
+	std::string filename = "D:\\Programmation\\LPReditor\\ocr_dataset\\test_svm.txt";
+
 	std::ofstream O(filename.c_str(), std::ios::app);
 	O << "Yolov5_anpr_onxx_detector::detect " << std::endl;
 #endif //LPREDITOR_DEMO_PRINT_STATS_IN_TXT_FILE
@@ -162,9 +162,6 @@ float Yolov5_anpr_onxx_detector::detect(const std::string& dir, const bool show_
 	//extracts from a test directory all images files that come with an xml file containing the bb coordinates in this image
 	load_images_filenames(dir, image_filenames);
 	std::list<std::string>::const_iterator it_image_filenames(image_filenames.begin());
-	int good_nb_caracs = 0;
-	int too_much_caracs = 0;
-	int misses_carcs = 0;
 	int c = 0;
 	int less_1_editdistance_reads = 0;
 	int miss_reads = 0;
@@ -178,35 +175,29 @@ float Yolov5_anpr_onxx_detector::detect(const std::string& dir, const bool show_
 		//returns the true license plate number out of a filename
 			//you must place the true license plate number in the image filename this way : number + underscore + license plate number,
 			//for instance filename 0000000001_3065WWA34.jpg will be interpreted as an image with the license plate 3065WWA34 in it.
-		std::string VraiLPN(getTrueLPN(p_.stem().string(), vrai_lpn_after_underscore));
-		std::cout << "VraiLPN : " << VraiLPN << " read LPN : " << lpn << std::endl;
+		std::string ExactLPN(getTrueLPN(p_.stem().string(), vrai_lpn_after_underscore));
+		std::cout << "ExactLPN : " << ExactLPN << " read LPN : " << lpn << std::endl;
 		Levenshtein lev;
-		int editdistance = lev.Get(VraiLPN.c_str(), VraiLPN.length(), lpn.c_str(), lpn.length());
+		int editdistance = lev.Get(ExactLPN.c_str(), ExactLPN.length(), lpn.c_str(), lpn.length());
 		if (editdistance > 0) miss_reads++;
 		else good_reads++;
-		if (VraiLPN.size() > lpn.size()) misses_carcs++;
-		else if (VraiLPN.size() == lpn.size() - 1) too_much_caracs++;
-		else if (VraiLPN.size() == lpn.size()) good_nb_caracs++;
 		if (editdistance <= 1) less_1_editdistance_reads++;
 		it_image_filenames++; c++;
-		if ((c % 100) == 0) {
-			std::cout << "VraiLPN : " << VraiLPN << " read LPN : " << lpn << std::endl;
-			std::cout << c << " misses carac(s):" << (float)(misses_carcs) / (float)(c)
-				<< "  too_much_caracs:" << (float)(too_much_caracs) / (float)(c) << " good_nb_caracs " << (float)(good_nb_caracs) / (float)(c) << std::endl;
+		if ((c % 1
+			//00
+			) == 0) {
 			std::cout << c << " perc good reads:" << (float)(good_reads) / (float)(c) << std::endl;
 			std::cout << c << " perc reads less 1 edit distance:" << (float)(less_1_editdistance_reads) / (float)(c) << std::endl;
 #ifdef LPREDITOR_DEMO_PRINT_STATS_IN_TXT_FILE
-			O << c << " misses carac(s):" << (float)(misses_carcs) / (float)(c)
-				<< "  too_much_caracs:" << (float)(too_much_caracs) / (float)(c) << " good_nb_caracs " << (float)(good_nb_caracs) / (float)(c) << " perc good reads:" << (float)(good_reads) / (float)(c) << std::endl;
+			O << c << " perc good reads:" << (float)(good_reads) / (float)(c) << std::endl;
 			O << c << " perc reads less 1 edit distance:" << (float)(less_1_editdistance_reads) / (float)(c) << std::endl;
 #endif //LPREDITOR_DEMO_PRINT_STATS_IN_TXT_FILE
 		}
 	}
-	float good_nb_caracs_percentage = (float)(good_nb_caracs) / (float)(image_filenames.size());
 	float good_reads_percentage = (float)(good_reads) / (float)(c);
 	float less_1_editdistance_reads_percentage = (float)(less_1_editdistance_reads) / (float)(c);
 #ifdef LPREDITOR_DEMO_PRINT_STATS_IN_TXT_FILE
-	O << "good_nb_caracs : " << good_nb_caracs_percentage << "good_reads : " << good_reads_percentage << "less_1_editdistance : " << less_1_editdistance_reads_percentage << std::endl;
+	O << "good_reads : " << good_reads_percentage << "less_1_editdistance : " << less_1_editdistance_reads_percentage << std::endl;
 	O.flush(); O.close();
 #endif //LPREDITOR_DEMO_PRINT_STATS_IN_TXT_FILE
 	return good_reads_percentage;
