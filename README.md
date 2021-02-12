@@ -88,6 +88,10 @@ Mandatory : to operate, the executable must load the model file. Doing that, you
 Building will produce an executable, with command line options (see them in the Open_LPReditor.cpp). It can read lpn(s) from a single image file or alternatively, from multiple image files, in a common directory. If the actual license plate number is provided (see func getTrueLPN in the code), in the image filename, then statistics of the correctness of the readings, are available. 
  	
 
+---
+&nbsp;
+![highgui](https://github.com/lprsoft/lpreditor/blob/master/screenshot.jpg).
+&nbsp;
  
 
 ---
