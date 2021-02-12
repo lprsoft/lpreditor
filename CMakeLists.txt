@@ -173,8 +173,34 @@ MESSAGE( STATUS )
 #************************
 #CUSTOM POST BUILD COMMAND
 #************************
+
+if(MSVC)
+file(GLOB OPENCV_FOR_LPREDITOR_DLLS_DEBUG "${OpenCV_DIR}/bin/Debug/opencv_dnn*d.dll" 
+"${OpenCV_DIR}/bin/Debug/opencv_highgui*d.dll" 
+"${OpenCV_DIR}/bin/Debug/opencv_videoio*d.dll" 
+"${OpenCV_DIR}/bin/Debug/opencv_imgcodecs*d.dll"
+"${OpenCV_DIR}/bin/Debug/opencv_imgproc*d.dll" 
+"${OpenCV_DIR}/bin/Debug/opencv_core*d.dll"
+)
+file(GLOB OPENCV_FOR_LPREDITOR_DLLS_RELEASE "${OpenCV_DIR}/bin/Release/opencv_dnn*.dll" 
+"${OpenCV_DIR}/bin/Release/opencv_highgui*.dll" 
+"${OpenCV_DIR}/bin/Release/opencv_videoio*.dll" 
+"${OpenCV_DIR}/bin/Release/opencv_imgcodecs*.dll"
+"${OpenCV_DIR}/bin/Release/opencv_imgproc*.dll" 
+"${OpenCV_DIR}/bin/Release/opencv_core*.dll"
+)
+#SET(OPENCV_FOR_LPREDITOR_DLLS debug ${OPENCV_FOR_LPREDITOR_DLLS_DEBUG} optimized ${OPENCV_FOR_LPREDITOR_DLLS_RELEASE})
+
 add_custom_command(TARGET ${CMAKE_PROJECT_NAME}
 POST_BUILD
 COMMAND ${CMAKE_COMMAND} -E copy_if_different
-${ONNXRUNTIME_DLLS} ${ONNXRUNTIME_LIBS}
+${ONNXRUNTIME_DLLS} ${ONNXRUNTIME_LIBS} 
+${OPENCV_FOR_LPREDITOR_DLLS_RELEASE} ${OPENCV_FOR_LPREDITOR_DLLS_DEBUG}
 $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>)
+else (MSVC)
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME}
+POST_BUILD
+COMMAND ${CMAKE_COMMAND} -E copy_if_different
+${ONNXRUNTIME_DLLS} ${ONNXRUNTIME_LIBS} 
+$<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>)
+endif(MSVC)

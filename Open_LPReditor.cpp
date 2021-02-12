@@ -41,12 +41,6 @@ MIT License
 // Open_LPReditor.cpp : Defines the entry point for the console application.
 //
 
-#ifdef _WINDOWS
-#include "stdafx.h"
-#endif //_WINDOWS
-//#include "Open_LPReditor.h"
-
-
 
 
 #include <iterator>
@@ -76,12 +70,12 @@ MIT License
 static void help(char** argv)
 {
 	std::cout << "\nThis program demonstrates the automatic numberplate recognition software named LPReditor\n"
-		"Usage:\n" << argv[0] << "\n--model = path to the model *.pt file\n"
+		"Usage:\n" << argv[0] << "\n--model = path to the model *.onnx file\n"
 		<< "[--image = path to your image file (if you opt to process just one image) ]\n"
 		<< "[--dir = path to a directory containing images files (if you opt to process all the images in the same directory)]\n"
 		<< "[--show], whether to show the image in a window with license plate in banner\n"
 		<< "[--time_delay= time delay in ms between two consecutive images]\n" << std::endl;
-	std::cout << "Note : model.pt file is in the package" << std::endl;
+	std::cout << "Note : model.onnx file is in the package" << std::endl;
 	std::cout << "Note : options [--image ] and [--dir ] are incompatible, model argument is mandatory" << std::endl;
 	std::cout << "Note : if you want to see how well the engine performs, you must place the true license plate number in the image filename this way : number+underscore+license plate number\n"
 		<< "for instance filename 0000000001_3065WWA34.jpg will be interpreted as an image with the license plate 3065WWA34 in it." << std::endl;
@@ -91,23 +85,11 @@ static void help(char** argv)
 //step 1 declare a global instance of ONNX Runtime api
 const OrtApi* g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
 
-#ifdef _WINDOWS
-//int _tmain(int argc, _TCHAR* argv[])
 int main(int argc, char* argv[])
-#else //_WINDOWS
-int main(int argc, char* argv[])
-#endif //_WINDOWS
 {
 #ifdef LPR_EDITOR_USE_CUDA
 	bool useCUDA{ false };
 #endif //LPR_EDITOR_USE_CUDA
-	/*
-std::filesystem::path p(std::filesystem::current_path());
-	std::string model_path = p.parent_path().string();
-	model_path+="/data/models/lpreditor_anpr.onnx";
-	std::cout << "model_path = "<<model_path << std::endl;
-std::cout << "current executable is = "<<argv[0] << std::endl;
-*/
 #ifdef LPREDITOR_DEMO_NO_ARGS
 	const int argc_ = 7;
 	char* argv_[argc_];
@@ -115,17 +97,17 @@ std::cout << "current executable is = "<<argv[0] << std::endl;
 	argv_[0] = argv[0];
 	argv_[1] = "";
 	argv_[2] = "--image=D:\\my\\path\\to\\an\\image.jpg";//
-	argv_[3] = "--model=D:\\my\\path\\to\\the\\yolo\\model\\yolo_carac_detect.pt ";//the yolo model file is provided in the repo
+	argv_[3] = "--model=D:\\my\\path\\to\\the\\yolo\\model\\yolo_carac_detect.onnx ";//the yolo model file is provided in the repo
 	argv_[4] = "--dir=D:\\my\\path\\to\\a\\directory\\with\\image\\files";
 	argv_[5] = "--time_delay=1000";//if you want the images to be displayed by hihgui
 	argv_[6] = "";
 	*/
 	argv_[0] = argv[0];
-	argv_[1] = "--show";
+	argv_[1] = "";
 	argv_[2] = "--image=../data/images/images test/0000000001_3065WWA34.jpg";//
 	argv_[3] = "--model=../data/models/lpreditor_anpr.onnx";
 	argv_[4] = "--dir=../data/images/images test";
-	argv_[5] = "--time_delay=0";//we don't want the images to be displayed by hihgui
+	argv_[5] = "--time_delay=-1";//we don't want the images to be displayed by hihgui
 	argv_[6] = "";
 	cv::CommandLineParser parser(argc_, argv_, "{help h | | }{show | | }{time_delay | -1 | }{model | | }{image | | }{dir | | }");
 #else //LPREDITOR_DEMO_NO_ARGS
@@ -204,7 +186,9 @@ std::cout << "current executable is = "<<argv[0] << std::endl;
 		if (!dir.size() && image_filename.size())
 		{
 			std::string filename = cv::samples::findFile(parser.get<std::string>("image"));
-			cv::Mat img0 = cv::imread(filename, cv::IMREAD_COLOR);
+			//cv::Mat img0 = cv::imread(filename, cv::IMREAD_COLOR);
+			std::string lpn;
+			onnx_net.detect(filename, lpn, show_image, time_delay);
 		}
 		else {
 			//process all images files of a directory
